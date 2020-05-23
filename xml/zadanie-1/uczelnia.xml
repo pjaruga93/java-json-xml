@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UCZELNIA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="uczelnia.xsd" NR="0">
+  <WYDZIAL id="ID-1">
+    <NAZWA>WMI</NAZWA>
+    <ADRES>
+      <ULICA>ul. Uniwersytetu Poznańskiego</ULICA>
+      <NR>4</NR>
+      <KOD_POCZTOWY>61-614</KOD_POCZTOWY>
+      <MIEJSCOWOSC>Poznań</MIEJSCOWOSC>
+    </ADRES>
+    <PRACOWNICY>
+      <PRACOWNIK id="ID-11">
+        <IMIE>Jan</IMIE>
+        <NAZWISKO>Dabrowski</NAZWISKO>
+        <TYTUL>doktor</TYTUL>
+        <KATEGORIA>naukowy</KATEGORIA>
+        <ADRES>
+          <ULICA>ul. Uniwersytetu Poznańskiego</ULICA>
+          <NR>4</NR>
+          <KOD_POCZTOWY>61-614</KOD_POCZTOWY>
+          <MIEJSCOWOSC>Poznań</MIEJSCOWOSC>
+        </ADRES>
+      </PRACOWNIK>
+      <PRACOWNIK id="ID-12">
+        <IMIE>Andrzej</IMIE>
+        <NAZWISKO>Kwiatkowski</NAZWISKO>
+        <TYTUL>inzynier</TYTUL>
+        <KATEGORIA>techniczny</KATEGORIA>
+        <ADRES>
+          <ULICA>ul. Uniwersytetu Poznańskiego</ULICA>
+          <NR>4</NR>
+          <KOD_POCZTOWY>61-614</KOD_POCZTOWY>
+          <MIEJSCOWOSC>Poznań</MIEJSCOWOSC>
+        </ADRES>
+      </PRACOWNIK>
+    </PRACOWNICY>
+    <PRZEDMIOTY>
+      <PRZEDMIOT>
+        <KOD>WDI</KOD>
+        <NAZWA>Wprowadzenie do Informatyki</NAZWA>
+        <OPIS>Podstawowe zagadnienia z zakresu informatyki. Wprowadzenie do tematu.</OPIS>
+        <LICZBA_UCZESTNIKOW>30</LICZBA_UCZESTNIKOW>
+        <WYKLADOWCA idref="ID-11"/>
+      </PRZEDMIOT>
+      <PRZEDMIOT>
+        <KOD>PP</KOD>
+        <NAZWA>Podstawy Programowania</NAZWA>
+        <OPIS>Zasady tworzenia czystego kodu</OPIS>
+        <LICZBA_UCZESTNIKOW>30</LICZBA_UCZESTNIKOW>
+        <WYKLADOWCA/>
+      </PRZEDMIOT>
+    </PRZEDMIOTY>
+  </WYDZIAL>
+</UCZELNIA>

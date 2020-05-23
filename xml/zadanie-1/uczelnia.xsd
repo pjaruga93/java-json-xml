@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="UCZELNIA">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="WYDZIAL" type="typ_WYDZIAL"/>
+      </xsd:sequence>
+      <xsd:attribute name="NR" use="required" type="xsd:integer"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:complexType name="typ_WYDZIAL">
+    <xsd:sequence>
+      <xsd:element name="NAZWA" type="xsd:string"/>
+      <xsd:element name="ADRES" type="typ_ADRES" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="PRACOWNICY" type="typ_PRACOWNICY"/>
+      <xsd:element name="PRZEDMIOTY" type="typ_PRZEDMIOTY"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:ID"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="typ_ADRES">
+    <xsd:sequence>
+      <xsd:element name="ULICA" type="xsd:string"/>
+      <xsd:element name="NR" type="xsd:string"/>
+      <xsd:element name="KOD_POCZTOWY" type="xsd:string"/>
+      <xsd:element name="MIEJSCOWOSC" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="typ_PRACOWNICY">
+    <xsd:sequence>
+      <xsd:element name="PRACOWNIK" type="typ_PRACOWNIK" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="typ_PRACOWNIK">
+    <xsd:sequence>
+      <xsd:element name="IMIE" type="xsd:string"/>
+      <xsd:element name="NAZWISKO" type="xsd:string"/>
+      <xsd:element name="TYTUL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="KATEGORIA" type="typ_KATEGORIA"/>
+      <xsd:element name="ADRES" type="typ_ADRES" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:ID"/>
+  </xsd:complexType>
+
+  <xsd:simpleType name="typ_KATEGORIA">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="naukowy"/>
+      <xsd:enumeration value="administracyjny"/>
+      <xsd:enumeration value="techniczny"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="typ_PRZEDMIOTY">
+    <xsd:sequence>
+      <xsd:element name="PRZEDMIOT" type="typ_PRZEDMIOT" maxOccurs="unbounded">
+        <xsd:unique name="kod_unique">
+          <xsd:selector xpath="PRZEDMIOT"/>
+          <xsd:field xpath="KOD"/>
+        </xsd:unique>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="typ_PRZEDMIOT">
+    <xsd:sequence>
+      <xsd:element name="KOD" type="xsd:string"/>
+      <xsd:element name="NAZWA" type="xsd:string"/>
+      <xsd:element name="OPIS" type="xsd:string"/>
+      <xsd:element name="LICZBA_UCZESTNIKOW" type="xsd:integer"/>
+      <xsd:element name="WYKLADOWCA" >
+        <xsd:complexType>
+          <xsd:attribute name="idref" type="xsd:IDREF"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
